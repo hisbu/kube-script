@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-api
+  labels:
+    app: purwadhika-website
+    tier: dev
+    name: api
+  annotations:
+    description: api server for development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: api
+  template:
+    metadata:
+      name: api-server-dev
+      labels:
+        app: purwadhika-website
+        tier: dev
+        name: api
+    spec:
+      containers:
+      - name: api-server-dev
+        image: 45.118.135.100:5000/purwadhika-api
+        command: ["npx"]
+        args: ["npx", "sequelize-cli", "db:migrate"]
+        ports:
+        - containerPort: 7070

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: purwadhika-web
+  labels:
+    app: purwadhika-website
+    tier: staging
+    name: frontend
+  annotations:
+    description: frontend server for development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: frontend
+  template:
+    metadata:
+      name: frontend-server
+      labels:
+        app: purwadhika-website
+        tier: staging
+        name: frontend
+    spec:
+      containers:
+      - name: frontend-server
+        image: 45.118.135.100:5000/purwadhika-website:0.3
+        ports:
+        - containerPort: 80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  labels:
+    app: purwadhika-website
+    name: db-stateful
+data:
+  my.cnf: |
+    [mysqld]
+    lower_case_table_names=1
+    skip_ssl

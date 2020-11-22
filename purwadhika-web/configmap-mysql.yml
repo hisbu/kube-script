@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  namespace: purwadhika-web
+  labels:
+    app: purwadhika-website
+    tier: staging
+data:
+  my.cnf: |
+    [mysqld]
+    lower_case_table_names=1
+    skip_ssl

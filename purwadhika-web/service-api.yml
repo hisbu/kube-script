@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-api
+  namespace: purwadhika-web
+spec:
+  type: ClusterIP
+  selector:
+    name: api
+  ports:
+    - port: 80
+      targetPort: 7070

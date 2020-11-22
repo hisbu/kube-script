@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-new-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: blog.spaceteknologi.com
+    http:
+      paths:
+      - backend:
+          serviceName: hello-one
+          servicePort: 80
+  - host: shop.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: hello-two
+          servicePort: 80
